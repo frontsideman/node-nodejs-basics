@@ -1,6 +1,5 @@
 import { readdir, copyFile, mkdir } from 'node:fs/promises';
-import { fileURLToPath } from 'url';
-import { dirname, join } from 'path';
+import { join } from 'path';
 
 const CONFIG = {
   dirName: 'files',
@@ -8,8 +7,7 @@ const CONFIG = {
   errorMessage: 'FS operation failed',
 };
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
+const __dirname = import.meta.dirname;
 const targetDirPath = join(__dirname, CONFIG.dirName);
 const copyDirPath = join(__dirname, CONFIG.copyDirName);
 
